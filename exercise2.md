@@ -1,6 +1,6 @@
 # Exercise 2 - Connect to Database
 
-In this exercise, you will connect to the database using PHP and retrieve data from the `contacts` table.
+In this exercise, you will connect to the database using PHP and retrieve data from the `contact` table.
 
 ## Task 1: Connect to Database
 
@@ -39,9 +39,9 @@ echo "Connected successfully";
 3. Intentionally modify the connection parameters (e.g., change the database name) to test the error handling.
 4. When happy that the connection works, remove the `echo "Connected successfully";` line from the `connectdb.php` file.
 
-## Task 3: Retrieve Data from `contacts` Table
+## Task 3: Retrieve Data from `contact` Table
 
-1. Create a new PHP file named `getcontacts.php`. This file will be used to retrieve data from the `contacts` table.
+1. Create a new PHP file named `getcontacts.php`. This file will be used to retrieve data from the `contact` table.
 2. Add the following code to  start of the `getcontacts.php` file to connect to the database:
 
 ```php
@@ -49,10 +49,10 @@ echo "Connected successfully";
 require_once 'connectdb.php';
 ```
 
-3. Add a query to retrieve all rows from the `contacts` table.
+3. Add a query to retrieve all rows from the `contact` table.
 
 ```php
-$sql = "SELECT id, first_name, last_name, email, phone FROM contacts";
+$sql = "SELECT id, first_name, last_name, email, phone FROM contact";
 $result = $conn->query($sql);
 ```
 
@@ -76,7 +76,7 @@ if ($result->num_rows > 0) {
 $conn->close();
 ```
 
-6. Run the `getcontacts.php` file in your local PHP server or Codespaces environment. e.g.: `php getcontacts.php`. Verify that the data from the `contacts` table is displayed.
+6. Run the `getcontacts.php` file in your local PHP server or Codespaces environment. e.g.: `php getcontacts.php`. Verify that the data from the `contact` table is displayed.
 
 ---
 

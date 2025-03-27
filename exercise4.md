@@ -1,6 +1,6 @@
 # Exercise 4 - SELECT
 
-In this exercise, you will retrieve data from the `contacts` table using PHP and display it in a tabular format. You will also add a search form to filter the results based on the user's input.
+In this exercise, you will retrieve data from the `contact` table using PHP and display it in a tabular format. You will also add a search form to filter the results based on the user's input.
 
 ## Task 1: Retrieve Data
 
@@ -8,7 +8,7 @@ In this exercise, you will retrieve data from the `contacts` table using PHP and
 2. Include the `connectdb.php` file at the beginning of the `select.php` file.
 3. Use the same HTML structure as in the previous exercises to create a page title, heading, and navigation block.
 4. Add a link to the `select.php` file alongside the `insert.php` file. Update the `insert.php` file to include a link back to the `select.php` file.
-5. Add a table to display the contact information retrieved from the `contacts` table. Include the following columns:
+5. Add a table to display the contact information retrieved from the `contact` table. Include the following columns:
    - ID
    - First Name
    - Last Name
@@ -30,11 +30,11 @@ Example table structure:
     </table>
     ```
 
-6. Within the table, add inline PHP code to retrieve the data from the `contacts` table and display it in the table rows.
+6. Within the table, add inline PHP code to retrieve the data from the `contact` table and display it in the table rows.
 
     ```php
     <?php
-        $sql = "SELECT id, first_name, last_name, email, phone FROM contacts";
+        $sql = "SELECT id, first_name, last_name, email, phone FROM contact";
         $result = $conn->query($sql);
         
     ```
@@ -59,7 +59,7 @@ Example table structure:
     ?>
     ```
 
-9. Run the `select.php` file in your local PHP server or Codespaces environment. Verify that the data from the `contacts` table is displayed in a tabular format.
+9. Run the `select.php` file in your local PHP server or Codespaces environment. Verify that the data from the `contact` table is displayed in a tabular format.
 
 ## Task 2: Add Search Form
 
@@ -77,13 +77,13 @@ Example table structure:
 
     ```php
     $search = $_GET["search"];
-    $sql = "SELECT id, first_name, last_name, email, phone FROM contacts WHERE first_name LIKE '%$search%' OR last_name LIKE '%$search%' OR email LIKE '%$search%' OR phone LIKE '%$search%'";
+    $sql = "SELECT id, first_name, last_name, email, phone FROM contact WHERE first_name LIKE '%$search%' OR last_name LIKE '%$search%' OR email LIKE '%$search%' OR phone LIKE '%$search%'";
     $result = $conn->query($sql);
     ```
 
     Explanation:
     - The `$_GET["search"]` variable retrieves the search term entered by the user.
-    - The SQL query uses the `LIKE` operator to search for the search term in the `first_name`, `last_name`, `email`, and `phone` columns of the `contacts` table.
+    - The SQL query uses the `LIKE` operator to search for the search term in the `first_name`, `last_name`, `email`, and `phone` columns of the `contact` table.
         - The `WHERE` clause filters the results based on if the predicate is true.
         - `LIKE` is used for pattern matching, and `%` is a wildcard character that matches any sequence of characters.
 

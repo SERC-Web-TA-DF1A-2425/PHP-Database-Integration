@@ -1,6 +1,6 @@
 # Exercise 5 - UPDATE
 
-In this exercise, you will update data in the `contacts` table using PHP. You will create a form to retrieve the contact information and display it for editing. The user will be able to update the contact details and submit the changes to the database.
+In this exercise, you will update data in the `contact` table using PHP. You will create a form to retrieve the contact information and display it for editing. The user will be able to update the contact details and submit the changes to the database.
 
 ## Task 1: Create an Update Form
 
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     if ($id > 0) {
         // Retrieve contact information based on ID
-        $sql = "SELECT id, first_name, last_name, email, phone FROM contacts WHERE id = $id";
+        $sql = "SELECT id, first_name, last_name, email, phone FROM contact WHERE id = $id";
         $result = $conn->query($sql);
 
         // use first row only
@@ -96,12 +96,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ```
 
-2. Update the contact information in the `contacts` table using an SQL `UPDATE` statement. Display a success message if the data is updated successfully, or an error message if it fails.
+2. Update the contact information in the `contact` table using an SQL `UPDATE` statement. Display a success message if the data is updated successfully, or an error message if it fails.
 
 Example code snippet:
 
 ```php
-$sql = "UPDATE contacts SET first_name='$first_name', last_name='$last_name', email='$email', phone='$phone' WHERE id=$id";
+$sql = "UPDATE contact SET first_name='$first_name', last_name='$last_name', email='$email', phone='$phone' WHERE id=$id";
 
 if ($conn->query($sql) === TRUE) {
     echo "Record updated successfully";
@@ -110,7 +110,7 @@ if ($conn->query($sql) === TRUE) {
 }
 ```
 
-3. Run the `update.php` file in your local PHP server or Codespaces environment. Verify that you can retrieve contact information, edit it, and update the details in the `contacts` table.
+3. Run the `update.php` file in your local PHP server or Codespaces environment. Verify that you can retrieve contact information, edit it, and update the details in the `contact` table.
 4. Test the script with different contact IDs to ensure that the contact information can be updated successfully.
 5. Fix any issues or errors that may arise during testing.
 

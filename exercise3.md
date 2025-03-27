@@ -1,6 +1,6 @@
 # Exercise 3 - INSERT Data
 
-In this exercise, you will insert data into the `contacts` table using PHP, using a form to collect user input.
+In this exercise, you will insert data into the `contact` table using PHP, using a form to collect user input.
 
 ## Task 1: Create a Form
 
@@ -44,12 +44,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ```
 
-2. Insert the form data into the `contacts` table using an SQL `INSERT` statement. Display a success message if the data is inserted successfully, or an error message if it fails.
+2. Insert the form data into the `contact` table using an SQL `INSERT` statement. Display a success message if the data is inserted successfully, or an error message if it fails.
 
 Example code snippet:
 
 ```php
-$sql = "INSERT INTO contacts (first_name, last_name, email, phone) VALUES ('$first_name', '$last_name', '$email', '$phone')";
+$sql = "INSERT INTO contact (first_name, last_name, email, phone) VALUES ('$first_name', '$last_name', '$email', '$phone')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
@@ -63,7 +63,7 @@ if ($conn->query($sql) === TRUE) {
 1. Start the PHP server in your local environment or Codespaces. `php -S localhost:8080`
 2. Open the `insert.php` file in your browser.
 3. Fill out the form and submit it.
-4. Verify that the data is inserted into the `contacts` table.
+4. Verify that the data is inserted into the `contact` table.
 
 
 ## Challenge

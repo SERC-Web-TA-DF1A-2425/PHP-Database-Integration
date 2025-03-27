@@ -8,7 +8,7 @@ Using either phpMyAdmin or the VS Code extension SQLtools alongside SQL statemen
 
 ```mermaid
 erDiagram
-    Contacts {
+    contact {
         int id
         string first_name
         string last_name
@@ -26,7 +26,7 @@ SQLtools is a VS Code extension that allows you to explore and interact with dat
 ### Steps
 
 1. Create a new database named `ContactList`.
-2. Create a table named `contacts` with the following columns:
+2. Create a table named `contact` with the following columns:
    - `id` - an integer that is the primary key and auto-incrementing.
    - `first_name` - a string that is 50 characters long.
    - `last_name` - a string that is 50 characters long.
@@ -36,7 +36,7 @@ SQLtools is a VS Code extension that allows you to explore and interact with dat
 
 ## Task 2: Insert Data
 
-Insert the following data into the `contacts` table:
+Insert the following data into the `contact` table:
 
 | first_name | last_name | email                 | phone         |
 |------------|-----------|-----------------------|---------------|
@@ -49,4 +49,4 @@ Insert the following data into the `contacts` table:
 
 ## Task 3: Inspect Database Schema
 
-Use either phpMyAdmin or SQLtools to inspect the database schema and verify that the `ContactList` database and `contacts` table have been created correctly.
+Use either phpMyAdmin or SQLtools to inspect the database schema and verify that the `ContactList` database and `contact` table have been created correctly.
