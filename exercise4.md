@@ -88,6 +88,7 @@ Example table structure:
         - `LIKE` is used for pattern matching, and `%` is a wildcard character that matches any sequence of characters.
 
 3. Verify that the search functionality works by entering a search term in the form and submitting it. The table should display only the rows that match the search criteria.
+4. Fix any issues or errors that may arise during testing.
 
 Questions:
 1. What is the purpose of the `LIKE` operator in SQL queries? How does it differ from the `=` operator?
