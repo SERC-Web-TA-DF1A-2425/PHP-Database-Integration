@@ -6,8 +6,20 @@ In this exercise, you will update data in the `contacts` table using PHP. You wi
 
 1. Create a new PHP file named `update.php`.
 2. Include the `connectdb.php` file at the beginning of the `update.php` file.
-3. Create the outline of an HTML page with a title and a heading. Update all the navigation blocks to include a link to the `update.php` file.
-4. Add a form to retrieve the contact information based on the contact ID. Include the following fields:
+3. Add placeholders for the contact information fields to be updated. These will be populated with the retrieved data.
+
+Example code snippet:
+
+```php
+$id = 0;
+$first_name = "";
+$last_name = "";
+$email = "";
+$phone = "";
+```
+
+4. Create the outline of an HTML page with a title and a heading. Update all the navigation blocks to include a link to the `update.php` file.
+5. Add a form to retrieve the contact information based on the contact ID. Include the following fields:
    - Contact ID (text input)
 
 Example form snippet:
@@ -15,7 +27,7 @@ Example form snippet:
     ```html
     <form action="update.php" method="get">
         <label for="id">Contact ID:</label>
-        <input type="text" id="id" name="id" required><br><br>
+        <input type="number" id="id" name="id" required><br><br>
         <input type="submit" value="Retrieve">
     </form>
     ```
@@ -29,17 +41,22 @@ Example code snippet:
 
 ```php
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    $id = $_GET["id"];
-    $sql = "SELECT id, first_name, last_name, email, phone FROM contacts WHERE id = $id";
-    $result = $conn->query($sql);
+    $id = (int) $_GET["id"];
 
-    // use first row only
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $first_name = $row["first_name"];
-        $last_name = $row["last_name"];
-        $email = $row["email"];
-        $phone = $row["phone"];
+    if ($id > 0) {
+        // Retrieve contact information based on ID
+        $sql = "SELECT id, first_name, last_name, email, phone FROM contacts WHERE id = $id";
+        $result = $conn->query($sql);
+
+        // use first row only
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $id = $row["id"];
+            $first_name = $row["first_name"];
+            $last_name = $row["last_name"];
+            $email = $row["email"];
+            $phone = $row["phone"];
+        }
     }
 }
 ```
@@ -49,6 +66,7 @@ Example form snippet:
 
 ```html
 <form action="update.php" method="post">
+    <input type="hidden" name="id" value="<?php echo $id; ?>">
     <label for="first_name">First Name:</label>
     <input type="text" id="first_name" name="first_name" value="<?php echo $first_name; ?>" required><br><br>
     <label for="last_name">Last Name:</label>
@@ -93,6 +111,8 @@ if ($conn->query($sql) === TRUE) {
 ```
 
 3. Run the `update.php` file in your local PHP server or Codespaces environment. Verify that you can retrieve contact information, edit it, and update the details in the `contacts` table.
+4. Test the script with different contact IDs to ensure that the contact information can be updated successfully.
+5. Fix any issues or errors that may arise during testing.
 
 ## Challenge
 
