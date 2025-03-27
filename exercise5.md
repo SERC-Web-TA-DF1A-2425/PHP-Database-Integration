@@ -93,3 +93,7 @@ if ($conn->query($sql) === TRUE) {
 ```
 
 3. Run the `update.php` file in your local PHP server or Codespaces environment. Verify that you can retrieve contact information, edit it, and update the details in the `contacts` table.
+
+## Challenge
+
+- Add a confirmation prompt before updating the contact information to confirm the changes.

@@ -64,3 +64,8 @@ if ($conn->query($sql) === TRUE) {
 2. Open the `insert.php` file in your browser.
 3. Fill out the form and submit it.
 4. Verify that the data is inserted into the `contacts` table.
+
+
+## Challenge
+
+- Add validation to the form fields to ensure that the user enters valid data.
