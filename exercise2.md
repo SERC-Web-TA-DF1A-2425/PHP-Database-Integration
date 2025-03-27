@@ -37,6 +37,7 @@ echo "Connected successfully";
 1. Run the `connectdb.php` file in your local PHP server or Codespaces environment. e.g.: `php connectdb.php`
 2. Verify that the success message is displayed.
 3. Intentionally modify the connection parameters (e.g., change the database name) to test the error handling.
+4. When happy that the connection works, remove the `echo "Connected successfully";` line from the `connectdb.php` file.
 
 ## Task 3: Retrieve Data from `contacts` Table
 
