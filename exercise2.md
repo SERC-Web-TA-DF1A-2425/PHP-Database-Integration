@@ -7,7 +7,7 @@ In this exercise, you will connect to the database using PHP and retrieve data f
 1. Create a new PHP file named `connectdb.php`.
 2. Use the `mysqli` extension to connect to the `ContactList` database.
 3. Use the following connection parameters:
-   - Host: `localhost`
+   - Host: `127.0.0.1`
    - Username: `root`
    - Password: `mariadb`
    - Database: `ContactList`
@@ -16,9 +16,9 @@ In this exercise, you will connect to the database using PHP and retrieve data f
 Example code snippet:
 ```php
 <?php
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username = "root";
-$password = "";
+$password = "mariadb";
 $dbname = "ContactList";
 
 // Create connection
