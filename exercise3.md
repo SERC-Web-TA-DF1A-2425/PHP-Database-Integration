@@ -5,7 +5,7 @@ In this exercise, you will insert data into the `contacts` table using PHP, usin
 ## Task 1: Create a Form
 
 1. Create a new PHP file named `insert.php`.
-2. Include the `connectdb.php` file at the beginning of the `insertform.php` file.
+2. Include the `connectdb.php` file at the beginning of the `insert.php` file.
 3. Create the outline of an HTML page with a title and a heading. Include a navigation block with a link to the `insert.php` file.
 4. Add a form to collect the following information from the user:
    - First Name (text input)
