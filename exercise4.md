@@ -4,10 +4,10 @@ In this exercise, you will retrieve data from the `contacts` table using PHP and
 
 ## Task 1: Retrieve Data
 
-1. Create a new PHP file named `getcontacts.php`.
-2. Include the `connectdb.php` file at the beginning of the `getcontacts.php` file.
+1. Create a new PHP file named `select.php`.
+2. Include the `connectdb.php` file at the beginning of the `select.php` file.
 3. Use the same HTML structure as in the previous exercises to create a page title, heading, and navigation block.
-4. Add a link to the `getcontacts.php` file alongside the `insert.php` file. Update the `insert.php` file to include a link back to the `getcontacts.php` file.
+4. Add a link to the `select.php` file alongside the `insert.php` file. Update the `insert.php` file to include a link back to the `select.php` file.
 5. Add a table to display the contact information retrieved from the `contacts` table. Include the following columns:
    - ID
    - First Name
@@ -59,21 +59,21 @@ Example table structure:
     ?>
     ```
 
-9. Run the `getcontacts.php` file in your local PHP server or Codespaces environment. Verify that the data from the `contacts` table is displayed in a tabular format.
+9. Run the `select.php` file in your local PHP server or Codespaces environment. Verify that the data from the `contacts` table is displayed in a tabular format.
 
 ## Task 2: Add Search Form
 
-1. Add a search form to the `getcontacts.php` file above the table. The form should include a text input field to enter the search term and a submit button to trigger the search.
+1. Add a search form to the `select.php` file above the table. The form should include a text input field to enter the search term and a submit button to trigger the search.
 
     ```html
-    <form action="getcontacts.php" method="get">
+    <form action="select.php" method="get">
         <label for="search">Search:</label>
         <input type="text" id="search" name="search">
         <input type="submit" value="Search">
     </form>
     ```
 
-2. Modify the SQL query in the `getcontacts.php` file to include a `WHERE` clause that filters the results based on the search term entered by the user.
+2. Modify the SQL query in the `select.php` file to include a `WHERE` clause that filters the results based on the search term entered by the user.
 
     ```php
     $search = $_GET["search"];
