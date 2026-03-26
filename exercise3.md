@@ -33,6 +33,10 @@ Example form snippet:
 
 1. In the `insert.php` file, retrieve the form data using the `$_POST` superglobal.
 
+**Key concepts:**
+- `$_POST` is a PHP superglobal array that contains data submitted via an HTML form using the `POST` method. Each key in the array corresponds to the `name` attribute of the form input.
+- `$_SERVER["REQUEST_METHOD"]` contains the HTTP method used to make the request (e.g., `"GET"` or `"POST"`). Checking this before processing form data ensures the code only runs when the form has actually been submitted.
+
 Example code snippet:
 
 ```php
@@ -46,6 +50,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 2. Insert the form data into the `contact` table using an SQL `INSERT` statement. Display a success message if the data is inserted successfully, or an error message if it fails.
 
+**⚠️ Security Note:** The example below inserts user input directly into the SQL query string. This is vulnerable to **SQL injection** — a common attack where a malicious user enters specially crafted input to manipulate the SQL query. In a production application, always use **prepared statements** with bound parameters instead. The challenge exercise explores this further.
+
 Example code snippet:
 
 ```php
@@ -57,6 +63,8 @@ if ($conn->query($sql) === TRUE) {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 ```
+
+**Explanation:** The `INSERT INTO` statement adds a new row to the `contact` table. The column names are listed in parentheses after the table name, and the corresponding values are listed in the `VALUES` clause. `$conn->query($sql)` returns `TRUE` on success or `FALSE` on failure, which is checked to display the appropriate message.
 
 ## Task 3: Test the Form
 

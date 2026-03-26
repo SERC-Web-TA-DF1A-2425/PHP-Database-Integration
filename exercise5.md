@@ -37,6 +37,8 @@ Example form snippet:
 1. In the `update.php` file, retrieve the form data using the `$_GET` superglobal.
 2. Retrieve the contact information based on the contact ID entered in the form.
 
+**Why `$_GET` here?** The retrieve form uses `method="get"`, so the contact ID is passed as a URL parameter (e.g., `update.php?id=3`). The `$_GET` superglobal reads values from the URL query string.
+
 Example code snippet:
 
 ```php
@@ -80,6 +82,8 @@ Example form snippet:
 </form>
 ```
 
+**Why `<input type="hidden">`?** Hidden inputs are not displayed to the user but are submitted with the form data. They are used here to carry the contact `id` from the retrieve step (GET) through to the update step (POST), so the PHP script knows which record to update. The `id` is not editable by the user in the visible form fields, but it must still be sent back to the server.
+
 ## Task 3: Update Contact Information
 
 1. In the `update.php` file, retrieve the updated form data using the `$_POST` superglobal.
@@ -109,6 +113,8 @@ if ($conn->query($sql) === TRUE) {
     echo "Error updating record: " . $conn->error;
 }
 ```
+
+**Explanation:** The `UPDATE` statement modifies existing rows in the table. The `SET` clause specifies which columns to change and their new values. The `WHERE id=$id` clause restricts the update to only the row with the matching `id` — without this clause, every row in the table would be updated.
 
 3. Run the `update.php` file in your local PHP server or Codespaces environment. Verify that you can retrieve contact information, edit it, and update the details in the `contact` table.
 4. Test the script with different contact IDs to ensure that the contact information can be updated successfully.

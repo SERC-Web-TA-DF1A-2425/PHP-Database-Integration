@@ -33,6 +33,26 @@ SQLtools is a VS Code extension that allows you to explore and interact with dat
    - `email` - a string that is 100 characters long.
    - `phone` - a string that is 20 characters long.
 
+**Key SQL concepts:**
+- `PRIMARY KEY` uniquely identifies each row in a table. No two rows can share the same primary key value.
+- `AUTO_INCREMENT` automatically generates a unique integer value for the `id` column each time a new row is inserted, so you do not need to specify the `id` manually.
+- `VARCHAR(n)` stores variable-length strings of up to `n` characters, which is more space-efficient than fixed-length `CHAR(n)`.
+
+Example SQL to create the table:
+
+```sql
+CREATE DATABASE ContactList;
+USE ContactList;
+
+CREATE TABLE contact (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100),
+    phone VARCHAR(20)
+);
+```
+
 
 ## Task 2: Insert Data
 
