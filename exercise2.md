@@ -7,7 +7,8 @@ In this exercise, you will connect to the database using PHP and retrieve data f
 1. Create a new PHP file named `connectdb.php`.
 2. Use the `mysqli` extension to connect to the `ContactList` database.
 3. Use the following connection parameters:
-   - Host: `mariadb`
+   - Host: `127.0.0.1` (if this doesn't work, try `0.0.0.0`)
+   - Port: `3306` (default MySQL/MariaDB port — no need to specify it explicitly)
    - Username: `root`
    - Password: `P@ssw0rd`
    - Database: `ContactList`
@@ -15,13 +16,14 @@ In this exercise, you will connect to the database using PHP and retrieve data f
 
 **Key concepts:**
 - `mysqli` (MySQL Improved) is a PHP extension for connecting to MySQL and MariaDB databases. It supports both procedural and object-oriented usage — this exercise uses the object-oriented style (`new mysqli(...)`).
-- The **host** is set to `mariadb` because MariaDB runs as a separate Docker container in the Codespace/devcontainer. Containers on the same Docker network communicate using the service name as the hostname rather than `127.0.0.1` (which refers to the PHP container itself).
+- The **host** is set to `127.0.0.1` (localhost) to connect to the MariaDB database server running on the same machine. If `127.0.0.1` does not work, try `0.0.0.0` instead.
+- The **port** is the network port the database server listens on. MySQL and MariaDB use port `3306` by default. When no port is passed to `new mysqli(...)`, it automatically uses `3306`, so you do not need to specify it explicitly in most cases.
 - Using `root` is acceptable in a local development environment, but you should always use a dedicated, least-privilege database user in production.
 
 Example code snippet:
 ```php
 <?php
-$servername = "mariadb";
+$servername = "127.0.0.1"; // If this doesn't work, try "0.0.0.0"
 $username = "root";
 $password = "P@ssw0rd";
 $dbname = "ContactList";
