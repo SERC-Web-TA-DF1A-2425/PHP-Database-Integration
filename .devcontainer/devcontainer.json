@@ -2,7 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/php-mariadb
 {
 	"name": "PHP",
-	"image": "ghcr.io/serc-cloud-dev-df2a-2526/devcontainers/php:latest",
+	"image": "ghcr.io/serc-computing/devcontainers/php:latest",
 	
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
