@@ -14,5 +14,6 @@ In this lab, you will work with PHP and MySQL to create a simple contact list we
 4. [Exercise 4 - SELECT](exercise4.md): Retrieve data from the `contact` table using PHP and display it in a tabular format. Add a search form to filter the results based on the user's input.
 5. [Exercise 5 - UPDATE](exercise5.md): Update data in the `contact` table using PHP. Create a form to retrieve the contact information and display it for editing. The user will be able to update the contact details and submit the changes to the database.
 6. [Exercise 6 - DELETE](exercise6.md): Delete data from the `contact` table using PHP. Create a form to retrieve the contact information and display it for deletion. The user will be able to confirm the deletion of the contact record.
+7. [Exercise 7 - PDO](exercise7.md): Rewrite database interactions using PDO (PHP Data Objects) and prepared statements to prevent SQL injection.
 
 [Challenge](challenge.md): Improve error handling and user experience in the contacts list application.
