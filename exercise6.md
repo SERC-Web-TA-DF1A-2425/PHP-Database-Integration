@@ -7,6 +7,9 @@ In this exercise, you will learn how to delete records from a MySQL database usi
 1. Create a new PHP file named `delete.php`.
 2. Include the `connectdb.php` file at the beginning of the `delete.php` file.
 3. Retrieve the `id` value from the URL using the `$_GET` superglobal.
+
+    **How URL parameters work:** When a link such as `delete.php?id=3` is clicked, the browser sends a `GET` request to the server. The part after `?` is called the **query string**, and PHP exposes each key-value pair from it through the `$_GET` superglobal — so `$_GET["id"]` would equal `"3"`.
+
 4. Use the retrieved `id` value to construct an SQL `DELETE` statement to remove the record from the `contact` table.
 
 Example code snippet:
@@ -23,6 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     }
 }
 ```
+
+**Explanation of the DELETE statement:** `DELETE FROM contact WHERE id = $id` removes the row from the `contact` table where the `id` column matches the supplied value. As with `UPDATE`, the `WHERE` clause is critical — omitting it would delete every row in the table.
 
 
 ## Task 2: Test the Delete Script

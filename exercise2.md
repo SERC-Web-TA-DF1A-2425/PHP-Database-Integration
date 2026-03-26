@@ -7,18 +7,23 @@ In this exercise, you will connect to the database using PHP and retrieve data f
 1. Create a new PHP file named `connectdb.php`.
 2. Use the `mysqli` extension to connect to the `ContactList` database.
 3. Use the following connection parameters:
-   - Host: `127.0.0.1`
+   - Host: `mariadb`
    - Username: `root`
-   - Password: `mariadb`
+   - Password: `P@ssw0rd`
    - Database: `ContactList`
 4. Test the connection by printing a success message if the connection is established, or an error message if it fails.
+
+**Key concepts:**
+- `mysqli` (MySQL Improved) is a PHP extension for connecting to MySQL and MariaDB databases. It supports both procedural and object-oriented usage — this exercise uses the object-oriented style (`new mysqli(...)`).
+- The **host** is set to `mariadb` because MariaDB runs as a separate Docker container in the Codespace/devcontainer. Containers on the same Docker network communicate using the service name as the hostname rather than `127.0.0.1` (which refers to the PHP container itself).
+- Using `root` is acceptable in a local development environment, but you should always use a dedicated, least-privilege database user in production.
 
 Example code snippet:
 ```php
 <?php
-$servername = "127.0.0.1";
+$servername = "mariadb";
 $username = "root";
-$password = "mariadb";
+$password = "P@ssw0rd";
 $dbname = "ContactList";
 
 // Create connection
@@ -31,6 +36,10 @@ if ($conn->connect_error) {
 echo "Connected successfully";
 ?>
 ```
+
+**Explanation of the connection check:**
+- `$conn->connect_error` contains the error message if the connection failed, or `null` if it succeeded.
+- `die()` stops script execution and outputs the error message. This is useful during development to surface connection problems immediately.
 
 ## Task 2: Test the Connection
 
@@ -49,12 +58,16 @@ echo "Connected successfully";
 require_once 'connectdb.php';
 ```
 
+**Why `require_once`?** `require_once` loads the specified file and ensures it is only included once, even if the statement appears multiple times in the code. This prevents duplicate function or variable declarations (such as `$conn`) that would occur if the file were included more than once. `require` (without `_once`) would include the file every time and cause errors on re-inclusion. `include` and `include_once` work similarly but emit a warning instead of a fatal error if the file is not found — `require_once` is preferred here because the connection file is essential for the script to work.
+
 3. Add a query to retrieve all rows from the `contact` table.
 
 ```php
 $sql = "SELECT id, first_name, last_name, email, phone FROM contact";
 $result = $conn->query($sql);
 ```
+
+**Explanation:** `$conn->query($sql)` sends the SQL statement to the database and returns a result object. The `SELECT` statement retrieves every row from the `contact` table and returns all five columns.
 
 4. Use a `while` loop to fetch and display the data in a readable format.
 

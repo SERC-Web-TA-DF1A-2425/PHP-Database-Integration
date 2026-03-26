@@ -73,6 +73,8 @@ Example table structure:
     </form>
     ```
 
+    **Why `method="get"`?** Using `GET` for search forms appends the search term to the URL (e.g., `select.php?search=John`), making the results bookmarkable and shareable. `POST` is used for actions that change data (such as inserting or deleting records) because it does not expose the submitted values in the URL and cannot be replayed by simply refreshing the page.
+
 2. Modify the SQL query in the `select.php` file to include a `WHERE` clause that filters the results based on the search term entered by the user.
 
     ```php
